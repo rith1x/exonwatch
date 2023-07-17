@@ -1,0 +1,52 @@
+{% load static %}
+<html>
+    <head>
+        <title>Login</title>
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="title">
+                Login
+            </div>
+            <form action="#" method="post">
+                {% csrf_token %}
+                {% load static %}
+                <div class="field">
+                    <label for ='email'>Email</label>
+                    <input type="email" name="email" float="right"  required>
+                </div>
+                <div class="field">
+                    <label for='password'>Password</label>
+                    <input id="password" type="password" name="password" required>
+                </div>
+                <div class="content">
+                    <div class="checkbox">
+                        <input type="checkbox" onchange="passShow()" name="" id="view-pass">
+                        <label for="view-pass">Show Password</label>
+                    </div>
+                    <div class="pass-link">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="signup-link">
+                    Not a Member? <a href="{% url 'signup' %}">Signup Now</a>
+                </div>
+            </form>
+        </div>
+        <script>
+            const checkShowPass = document.getElementById('view-pass');
+            const passField = document.getElementById('password');
+           function passShow(){
+            if (checkShowPass.checked) {
+            passField.type = "text";
+         } else {
+            passField.type = "password";
+
+         }}
+        </script>
+    </body>
+</html>

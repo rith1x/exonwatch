@@ -1,0 +1,60 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Signup Page</title>
+
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+
+       
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="title">
+                Signup
+            </div>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {% load static %}
+           
+            <div class="field">
+                <label for='first_name'>First Name</label>
+		        <input type='text' name='first_name' required>
+            </div>
+            <div class="field">
+                <label for='last_name'>Last Name</label>
+		        <input type='text' name='last_name' required>
+            </div>
+            <div class="fieldx">
+                <label class="lable" for='sex' >Gender</label>
+                <span> 
+		        
+                <input type='radio' name='sex' value='male' required>
+		        <label >Male</label>
+            </span>
+                <span>
+		        <input type='radio' name='sex' value='female' required>
+		        <label >Female</label>
+            </span>
+            </div>
+            <div class="field">
+                <label for ='email'>Email Id </label>
+            	<input type="email" name="email" float="right"  required>
+            </div>
+            <div class="field">
+                <label for='password'>Password</label>
+            	<input type="text" name="password" required>
+            </div>
+            <div class="field">
+                <input type="submit" value="Signup">
+            </div>
+            <div class="signup-link">
+
+            Already a Member? <a href="{% url 'login' %}">Login Here</a>
+</div>
+            
+        </form>
+        
+    </div>
+    </body>
+</html>
